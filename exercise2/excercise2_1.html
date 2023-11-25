@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="click-me" onclick="updateButton()">
+        Click here to change button text
+      </button>
+
+      <div id="formContainer"></div>
+
+      <script>
+        // Exercise 1: Function to update button text
+        function updateButton() {
+          document.getElementById("button1").textContent = "Submit";
+        }
+
+        // Exercise 2: Create a form dynamically
+        var myForm = document.createElement("form");
+        myForm.id = "form1";
+
+        // Create input fields within the form
+        var firstNameLabel = document.createElement("label");
+        firstNameLabel.for = "firstname";
+        firstNameLabel.textContent = "First Name:";
+        myForm.appendChild(firstNameLabel);
+
+        var firstNameInput = document.createElement("input");
+        firstNameInput.type = "text";
+        firstNameInput.id = "fname";
+        firstNameInput.name = "firstname";
+        myForm.appendChild(firstNameInput);
+
+        var lastNameLabel = document.createElement("label");
+        lastNameLabel.for = "lastname";
+        lastNameLabel.textContent = "Last Name:";
+        myForm.appendChild(lastNameLabel);
+
+        var lastNameInput = document.createElement("input");
+        lastNameInput.type = "text";
+        lastNameInput.id = "lname";
+        lastNameInput.name = "lastname";
+        myForm.appendChild(lastNameInput);
+
+        // Append the form to the container
+        document.getElementById("formContainer").appendChild(myForm);
+
+        // Create the submit button for the form
+        var submitButton = document.createElement("button");
+        submitButton.id = "button1";
+        submitButton.type = "submit";
+        submitButton.textContent = "Send";
+        myForm.appendChild(submitButton);
+
+        // JavaScript function to get the value of the submit button
+        function getSubmitButtonValue() {
+          var submitButtonValue = document.getElementById("button1").textContent;
+          alert("Submit Button Value: " + submitButtonValue);
+        }
+
+        // Attach the function to the form's onsubmit event
+        myForm.onsubmit = function (event) {
+          event.preventDefault(); // Prevent the form from actually submitting
+          getSubmitButtonValue(); // Call the function to get the submit button value
+        };
+      </script>
+    </div>
+  </body>
+</html>

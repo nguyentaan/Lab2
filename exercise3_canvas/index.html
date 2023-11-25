@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <style>
+        canvas{
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body onload="startGame()">
+<div style="text-align:center;width:480px;">
+  <button onmousedown="moveup()" onmouseup="clearmove()" >UP</button><br><br>
+  <button onmousedown="moveleft()" onmouseup="clearmove()" >LEFT</button>
+  <button onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button><br><br>
+  <button onmousedown="movedown()" onmouseup="clearmove()" >DOWN</button>
+</div>
+</body>
+</html>

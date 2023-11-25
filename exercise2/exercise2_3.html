@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+  </head>
+  <body>
+    <h1>Age Calculator</h1>
+
+    <label for="dobInput">Enter Date of Birth:</label>
+    <input type="date" id="dobInput" />
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <p id="result"></p>
+
+    <script>
+      function calculate_age(dob) {
+        var diff_ms = Date.now() - dob.getTime();
+        var age_dt = new Date(diff_ms);
+        return Math.abs(age_dt.getUTCFullYear() - 1970);
+      }
+
+      function calculateAge() {
+        var dobInput = document.getElementById("dobInput").value;
+
+        // Check if a date is selected
+        if (dobInput) {
+          var dob = new Date(dobInput);
+          var age = calculate_age(dob);
+
+          document.getElementById("result").textContent =
+            "Age: " + age + " years";
+        } else {
+          document.getElementById("result").textContent =
+            "Please enter a valid date of birth.";
+        }
+      }
+    </script>
+  </body>
+</html>
